@@ -14,6 +14,7 @@ class LoginController extends BaseController
     public function __construct()
     {
         $this->session = session();
+        $this->data['session'] = $this->session;
         $this->data['validation'] = \Config\Services::validation();
         $this->user = new User();
     }
@@ -56,7 +57,7 @@ class LoginController extends BaseController
                     ];
 
                     $this->session->set($ses_data);
-                    return redirect()->to('/app/');
+                    return redirect()->to('/app/beranda');
 
                 } else {
                     $this->session->setFlashdata('error', 'Username atau password salah.');

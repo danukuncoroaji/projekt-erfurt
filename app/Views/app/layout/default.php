@@ -75,7 +75,7 @@
                         <div class="d-flex">
                             <ul class="navbar-nav">
                                 <li class="nav-item hidden-on-mobile">
-                                    <a class="nav-link" href="#">Sistem Informasi Pengaduan Desa Pojok - SIPDEPO</a>
+                                    <a class="nav-link" href="#">Sistem Informasi Pengaduan Desa Pojok</a>
                                 </li>
                             </ul>
                         </div>
