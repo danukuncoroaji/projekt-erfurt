@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Laporan extends Model
+class Pengaduan extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'laporan';
+    protected $table            = 'pengaduan';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
@@ -17,7 +17,7 @@ class Laporan extends Model
     protected $allowedFields    = ['id_user','judul','status'];
 
     // Dates
-    protected $useTimestamps = true;
+    protected $useTimestamps = false;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';

@@ -4,17 +4,17 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class DetailLaporan extends Model
+class Detailpengaduan extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'detail_laporan';
+    protected $table            = 'detail_pengaduan';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_laporan','id_user','isi','tanggal','status'];
+    protected $allowedFields    = ['id_pengaduan','id_user','isi','tanggal','status'];
 
     // Dates
     protected $useTimestamps = true;

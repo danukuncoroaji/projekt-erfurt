@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 
-class LaporanController extends BaseController
+class PengaduanController extends BaseController
 {
     public function index()
     {

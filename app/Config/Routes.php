@@ -37,8 +37,8 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 // $routes->get('/', 'Home::index');
 $routes->get('/', 'LandingController::index');
-$routes->get('/laporan', 'LandingController::laporan');
-$routes->get('/laporan/detail/(:any)', 'LandingController::laporanDetail/$1');
+$routes->get('/pengaduan', 'LandingController::pengaduan');
+$routes->get('/pengaduan/detail/(:any)', 'LandingController::pengaduanDetail/$1');
 $routes->get('/pengumuman/', 'LandingController::pengumuman');
 $routes->get('/pengumuman/detail/(:any)', 'LandingController::PengumumanDetail/$1');
 
@@ -49,22 +49,23 @@ $routes->get('/app/logout', 'LoginController::logout');
 $routes->get('/app/register', 'LoginController::register');
 $routes->post('/app/register', 'LoginController::registerStore');
 
-$routes->get('/app/laporan', 'LaporanController::index',['filter' => 'authGuard']);
-$routes->get('/app/laporan/create', 'LaporanController::create',['filter' => 'authGuard']);
-$routes->post('/app/laporan/store', 'LaporanController::store',['filter' => 'authGuard']);
-$routes->get('/app/laporan/(:any)', 'LaporanController::detail/$1',['filter' => 'authGuard']);
+$routes->get('/app/', 'BerandaController::index',['filter' => 'authGuard']);
+$routes->get('/app/pengaduan', 'PengaduanController::index',['filter' => 'authGuard']);
+$routes->get('/app/pengaduan/create', 'PengaduanController::create',['filter' => 'authGuard']);
+$routes->post('/app/pengaduan/store', 'PengaduanController::store',['filter' => 'authGuard']);
+$routes->get('/app/pengaduan/(:any)', 'PengaduanController::detail/$1',['filter' => 'authGuard']);
 
-$routes->post('/app/laporan/(:any)/detail/(:any)/store-image', 'LaporanController::storeGambar/$1/$2',['filter' => 'authGuard']);
-$routes->post('/app/laporan/(:any)/detail/(:any)/delete-image/(:any)', 'LaporanController::deleteGambar/$1/$2/$2',['filter' => 'authGuard']);
-$routes->post('/app/laporan/(:any)/detail/(:any)/store', 'LaporanController::storeDetail/$1/$2',['filter' => 'authGuard']);
-$routes->post('/app/laporan/(:any)/detail/(:any)/edit/(:any)', 'LaporanController::updateDetail/$1/$2/$3',['filter' => 'authGuard']);
-$routes->post('/app/laporan/(:any)/detail/(:any)/delete/(:any)', 'LaporanController::deleteDetail/$1/$2/$3',['filter' => 'authGuard']);
+$routes->post('/app/pengaduan/(:any)/detail/(:any)/store-image', 'PengaduanController::storeGambar/$1/$2',['filter' => 'authGuard']);
+$routes->post('/app/pengaduan/(:any)/detail/(:any)/delete-image/(:any)', 'PengaduanController::deleteGambar/$1/$2/$2',['filter' => 'authGuard']);
+$routes->post('/app/pengaduan/(:any)/detail/(:any)/store', 'PengaduanController::storeDetail/$1/$2',['filter' => 'authGuard']);
+$routes->post('/app/pengaduan/(:any)/detail/(:any)/edit/(:any)', 'PengaduanController::updateDetail/$1/$2/$3',['filter' => 'authGuard']);
+$routes->post('/app/pengaduan/(:any)/detail/(:any)/delete/(:any)', 'PengaduanController::deleteDetail/$1/$2/$3',['filter' => 'authGuard']);
 
-$routes->post('/app/laporan/(:any)/detail/(:any)/komentar/store', 'LaporanController::storeKomentar/$1/$2',['filter' => 'authGuard']);
-$routes->post('/app/laporan/(:any)/detail/(:any)/komentar/edit/(:any)', 'LaporanController::updateKomentar/$1/$2/$3',['filter' => 'authGuard']);
-$routes->post('/app/laporan/(:any)/detail/(:any)/komentar/delete/(:any)', 'LaporanController::deleteKomentar/$1/$2/$3',['filter' => 'authGuard']);
+$routes->post('/app/pengaduan/(:any)/detail/(:any)/komentar/store', 'PengaduanController::storeKomentar/$1/$2',['filter' => 'authGuard']);
+$routes->post('/app/pengaduan/(:any)/detail/(:any)/komentar/edit/(:any)', 'PengaduanController::updateKomentar/$1/$2/$3',['filter' => 'authGuard']);
+$routes->post('/app/pengaduan/(:any)/detail/(:any)/komentar/delete/(:any)', 'PengaduanController::deleteKomentar/$1/$2/$3',['filter' => 'authGuard']);
 
-$routes->get('/app/laporan/delete/(:any)', 'LaporanController::delete/$1',['filter' => 'authGuard']);
+$routes->get('/app/pengaduan/delete/(:any)', 'PengaduanController::delete/$1',['filter' => 'authGuard']);
 
 $routes->get('/app/pengumuman', 'PengumumanController::index',['filter' => 'authGuard']);
 $routes->get('/app/pengumuman/create', 'PengumumanController::create',['filter' => 'authGuard']);
