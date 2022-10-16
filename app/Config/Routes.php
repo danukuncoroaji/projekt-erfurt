@@ -7,7 +7,7 @@ $routes = Services::routes();
 
 // Load the system's routing file first, so that the app and ENVIRONMENT
 // can override as needed.
-if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
+if (is_file(SYSTEMPATH . 'Config/Routes.php')) {
     require SYSTEMPATH . 'Config/Routes.php';
 }
 
@@ -21,7 +21,11 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-$routes->setAutoRoute(false);
+// The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
+// where controller filters or CSRF protection are bypassed.
+// If you don't want to define all routes, please use the Auto Routing (Improved).
+// Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
+// $routes->setAutoRoute(false);
 
 /*
  * --------------------------------------------------------------------
@@ -31,11 +35,12 @@ $routes->setAutoRoute(false);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'LandingController::index',['filter' => 'authGuard']);
-$routes->get('/laporan', 'LandingController::laporan',['filter' => 'authGuard']);
-$routes->get('/laporan/detail/(:any)', 'LandingController::laporanDetail/$1',['filter' => 'authGuard']);
-$routes->get('/pengumuman/', 'LandingController::pengumuman',['filter' => 'authGuard']);
-$routes->get('/pengumuman/detail/(:any)', 'LandingController::PengumumanDetail/$1',['filter' => 'authGuard']);
+// $routes->get('/', 'Home::index');
+$routes->get('/', 'LandingController::index');
+$routes->get('/laporan', 'LandingController::laporan');
+$routes->get('/laporan/detail/(:any)', 'LandingController::laporanDetail/$1');
+$routes->get('/pengumuman/', 'LandingController::pengumuman');
+$routes->get('/pengumuman/detail/(:any)', 'LandingController::PengumumanDetail/$1');
 
 $routes->get('/app/login', 'LoginController::index');
 $routes->post('/app/login', 'LoginController::loginAuth');
@@ -68,8 +73,6 @@ $routes->get('/app/pengumuman/(:any)', 'PengumumanController::edit/$1',['filter'
 $routes->post('/app/pengumuman/(:any)', 'PengumumanController::update/$1',['filter' => 'authGuard']);
 $routes->get('/app/pengumuman/delete/(:any)', 'PengumumanController::delete/$1',['filter' => 'authGuard']);
 
-
-
 /*
  * --------------------------------------------------------------------
  * Additional Routing
@@ -83,8 +86,6 @@ $routes->get('/app/pengumuman/delete/(:any)', 'PengumumanController::delete/$1',
  * You will have access to the $routes object within that file without
  * needing to reload it.
  */
-if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
+if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
-
-
