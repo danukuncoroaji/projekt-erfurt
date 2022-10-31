@@ -40,6 +40,11 @@ class PengaduanController extends BaseController
 
     public function create()
     {
-        return view('app/pengaduan/index', $this->data);
+        return view('app/pengaduan/create', $this->data);
+    }
+
+    public function detail()
+    {
+        return view('app/pengaduan/detail', $this->data);
     }
 }

@@ -25,14 +25,14 @@
                         class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="<?php echo base_url('/app/pengaduan'); ?>" <?php if(str_contains(base_url(uri_string()),'pengaduan')){ ?> class="active" <?php } ?>>List</a>
+                        <a href="<?php echo base_url('/app/pengaduan'); ?>" <?php if(str_contains(base_url(uri_string()),'pengaduan')){ ?> class="active" <?php } ?>>Daftar</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url('/app/pengaduan/create'); ?>" <?php if(str_contains(base_url(uri_string()),'pengaduan/create')){ ?> class="active" <?php } ?>>Tambah</a>
+                        <a href="<?php echo base_url('/app/pengaduan/tambah'); ?>" <?php if(str_contains(base_url(uri_string()),'pengaduan/tambah')){ ?> class="active" <?php } ?>>Tambah</a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="<?php echo base_url('/app/pengaduan/saya'); ?>" <?php if(str_contains(base_url(uri_string()),'pengaduan/saya')){ ?> class="active" <?php } ?>>Pengaduan Saya</a>
-                    </li>
+                    </li> -->
                 </ul>
             </li>
             <?php } else if ($session->get('level') == 1) {?>

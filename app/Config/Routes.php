@@ -52,7 +52,10 @@ $routes->post('/app/register', 'LoginController::registerStore');
 $routes->addRedirect('/app', '/app/beranda');
 $routes->get('/app/beranda', 'BerandaController::index',['filter' => 'authGuard']);
 $routes->get('/app/pengaduan', 'PengaduanController::index',['filter' => 'authGuard']);
-$routes->get('/app/pengaduan/create', 'PengaduanController::create',['filter' => 'authGuard']);
+$routes->get('/app/pengaduan/tambah', 'PengaduanController::create',['filter' => 'authGuard']);
+
+$routes->get('/app/pengaduan/detail', 'PengaduanController::detail',['filter' => 'authGuard']);
+
 $routes->get('/app/pengaduan/saya', 'PengaduanController::create',['filter' => 'authGuard']);
 $routes->post('/app/pengaduan/store', 'PengaduanController::store',['filter' => 'authGuard']);
 $routes->get('/app/pengaduan/(:any)', 'PengaduanController::detail/$1',['filter' => 'authGuard']);

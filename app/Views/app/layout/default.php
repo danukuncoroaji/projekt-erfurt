@@ -25,6 +25,9 @@
     <link href="<?php echo base_url('assets/plugins/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/plugins/perfectscroll/perfect-scrollbar.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/plugins/pace/pace.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/plugins/highlight/styles/github-gist.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/plugins/datatables/datatables.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/plugins/summernote/summernote-lite.min.css'); ?>" rel="stylesheet">
 
 
     <!-- Theme Styles -->
@@ -33,6 +36,17 @@
 
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo base_url('assets/images/neptune.png'); ?>" />
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/neptune.png'); ?>" />
+
+        <!-- Javascripts -->
+        <script src="<?php echo base_url('assets/plugins/jquery/jquery-3.5.1.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/plugins/bootstrap/js/bootstrap.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/plugins/perfectscroll/perfect-scrollbar.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/plugins/pace/pace.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/plugins/apexcharts/apexcharts.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/plugins/summernote/summernote-lite.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/pages/text-editor.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/main.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/custom.js'); ?>"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -84,21 +98,12 @@
             </div>
             <div class="app-content">
                 <div class="content-wrapper">
-                    <div class="container">
+                    <div class="container-fluid">
                         <?= $this->renderSection('content') ?>
                     </div>
                 </div>
             </div>
         </div>
-    <!-- Javascripts -->
-    <script src="<?php echo base_url('assets/plugins/jquery/jquery-3.5.1.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/plugins/bootstrap/js/bootstrap.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/plugins/perfectscroll/perfect-scrollbar.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/plugins/pace/pace.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/plugins/apexcharts/apexcharts.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/js/main.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/js/custom.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/js/pages/dashboard.js'); ?>"></script>
 </body>
 </html>
 
