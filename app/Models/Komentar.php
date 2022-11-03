@@ -14,7 +14,7 @@ class Komentar extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_user','id_detail_pengaduan','id_pengaduan','isi','tanggal','status'];
+    protected $allowedFields    = ['id_user' ,'id_pengaduan','isi','tanggal','status'];
 
     // Dates
     protected $useTimestamps = true;

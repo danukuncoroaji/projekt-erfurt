@@ -14,7 +14,7 @@ class Gambar extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_detail_pengaduan','id_pengaduan','filename','filesize','format'];
+    protected $allowedFields    = ['id_detail_pengaduan','id_pengaduan','filename','path','filesize','format'];
 
     // Dates
     protected $useTimestamps = true;

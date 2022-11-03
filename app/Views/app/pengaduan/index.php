@@ -1,6 +1,22 @@
 <?=$this->extend('app/layout/default')?>
 <?=$this->section('content')?>
 <div class="row">
+    <?php if(session()->getFlashdata('error')):?>
+    <div class="col-12">
+        <div class="alert alert-danger text-white">
+            <strong>Terdapat Kesalahan !</strong>
+            <?= session()->getFlashdata('error'); ?>
+        </div>
+    </div>
+    <?php endif;?>
+    <?php if(session()->getFlashdata('success')):?>
+    <div class="col-12">
+        <div class="alert alert-success text-white">
+            <i class="fas fa-check"></i>
+            <?= session()->getFlashdata('success') ?>
+        </div>
+    </div>
+    <?php endif;?>
     <div class="col">
         <div class="page-description">
             <nav aria-label="breadcrumb">
@@ -11,7 +27,9 @@
             </nav>
             <h1>Pengaduan</h1>
             <span>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis viverra dapibus.<br>Maecenas eleifend augue convallis tellus rhoncus scelerisque. Aliquam eu nunc sit amet velit pharetra cursus, <a href="#">disini</a>.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis viverra dapibus.<br>Maecenas
+                eleifend augue convallis tellus rhoncus scelerisque. Aliquam eu nunc sit amet velit pharetra cursus, <a
+                    href="#">disini</a>.
             </span>
         </div>
         <div class="card">
@@ -28,41 +46,31 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                        $i= 1;
+                        foreach($pengaduans as $pengaduan){ ?>
                         <tr>
-                            <td>1</td>
-                            <td>Pengaduan #1</td>
-                            <td><span class="badge badge-secondary">Pelayanan dan Fasilitas Umum</span></td>
-                            <td>2022-10-29 10:00:00</td>
-                            <td><span class="badge badge-info">Peninjauan</span></td>
+                            <td><?= $i; ?></td>
+                            <td><?= $pengaduan['judul']; ?></td>
+                            <td><span class="badge badge-secondary"><?= $pengaduan['kategori']; ?></span></td>
+                            <td><?= $pengaduan['created_at']; ?></td>
                             <td>
-                                <a href="<?= base_url('app/pengaduan/detail'); ?>" class="btn btn-info btn-sm">Detail</a>
-                                <a href="#" class="btn btn-danger btn-sm">Batalkan</a>
+                                <?php if($pengaduan['status'] == 1){ ?>
+                                    <span class="badge badge-info">Peninjauan</span>
+                                    <?php }else if($pengaduan['status'] == 2){ ?>
+                                    <span class="badge badge-warning">Pemrosesan</span>
+                                    <?php }else if($pengaduan['status'] == 3){ ?>
+                                    <span class="badge badge-primary">Tindak Lanjut</span>
+                                    <?php }else if($pengaduan['status'] == 4){ ?>
+                                    <span class="badge badge-success">Ditutup</span>
+                                    <?php } ?>
+                            </td>
+                            <td>
+                                <a href="<?= base_url('app/pengaduan/detail/'. $pengaduan['id']); ?>"
+                                    class="btn btn-info btn-sm">Detail</a>
                             </td>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Pengaduan #2</td>
-                            <td><span class="badge badge-secondary">Pembangunan Desa</span></td>
-                            <td>2022-10-29 10:00:00</td>
-                            <td><span class="badge badge-warning">Pemrosesan</span></td>
-                            <td><a href="<?= base_url('app/pengaduan/detail'); ?>" class="btn btn-info btn-sm">Detail</a></td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Pengaduan #3</td>
-                            <td><span class="badge badge-secondary">Pembangunan Desa</span></td>
-                            <td>2022-10-29 10:00:00</td>
-                            <td><span class="badge badge-primary">Tindak Lanjut</span></td>
-                            <td><a href="<?= base_url('app/pengaduan/detail'); ?>" class="btn btn-info btn-sm">Detail</a></td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Pengaduan #4</td>
-                            <td><span class="badge badge-secondary">Pertanahan</span></td>
-                            <td>2022-10-29 10:00:00</td>
-                            <td><span class="badge badge-success">Selesai</span></td>
-                            <td><a href="<?= base_url('app/pengaduan/detail'); ?>" class="btn btn-info btn-sm">Detail</a></td>
-                        </tr>
+                        <?php $i++; } ?>
                     </tbody>
                     <tfoot>
                         <tr>
@@ -76,9 +84,12 @@
                     </tfoot>
                 </table>
             </div>
+            <?php if($session->get('level') == 2){ ?>
             <div class="card-footer">
-                <a href="<?= base_url('app/pengaduan/tambah'); ?>" class="btn btn-success"><i class="material-icons">add</i> Tambah Pengaduan</a>
+                <a href="<?= base_url('app/pengaduan/tambah'); ?>" class="btn btn-success"><i
+                        class="material-icons">add</i> Tambah Pengaduan</a>
             </div>
+            <?php } ?>
         </div>
     </div>
 </div>
@@ -86,30 +97,30 @@
 <script src="<?php echo base_url('assets/js/pages/datatables.js'); ?>"></script>
 <script>
     $("#tabel").DataTable({
-"language": {
-  "decimal": "",
-  "emptyTable": "Belum ada data.",
-  "info": "Menampilkan _START_ ke _END_ dari total : _TOTAL_ data",
-  "infoEmpty": "Menampilkan 0 dari 0 data",
-  "infoFiltered": "(filtered from _MAX_ total entries)",
-  "infoPostFix": "",
-  "thousands": ",",
-  "lengthMenu": "Tampilkan _MENU_ data",
-  "loadingRecords": "Mohon tunggu...",
-  "processing": "Memproses...",
-  "search": "Cari:",
-  "zeroRecords": "Data tidak ditemukan",
-  "paginate": {
-      "first": "<<",
-      "last": ">>",
-      "next": ">",
-      "previous": "<"
-  },
-  "aria": {
-      "sortAscending": ": activate to sort column ascending",
-      "sortDescending": ": activate to sort column descending"
-  }
-}
-});
+        "language": {
+            "decimal": "",
+            "emptyTable": "Belum ada data.",
+            "info": "Menampilkan _START_ ke _END_ dari total : _TOTAL_ data",
+            "infoEmpty": "Menampilkan 0 dari 0 data",
+            "infoFiltered": "(filtered from _MAX_ total entries)",
+            "infoPostFix": "",
+            "thousands": ",",
+            "lengthMenu": "Tampilkan _MENU_ data",
+            "loadingRecords": "Mohon tunggu...",
+            "processing": "Memproses...",
+            "search": "Cari:",
+            "zeroRecords": "Data tidak ditemukan",
+            "paginate": {
+                "first": "<<",
+                "last": ">>",
+                "next": ">",
+                "previous": "<"
+            },
+            "aria": {
+                "sortAscending": ": activate to sort column ascending",
+                "sortDescending": ": activate to sort column descending"
+            }
+        }
+    });
 </script>
 <?=$this->endSection()?>

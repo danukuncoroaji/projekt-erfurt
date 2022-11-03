@@ -43,8 +43,9 @@
     <script src="<?php echo base_url('assets/plugins/perfectscroll/perfect-scrollbar.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/plugins/pace/pace.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/plugins/apexcharts/apexcharts.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/plugins/summernote/summernote-lite.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/js/pages/text-editor.js'); ?>"></script>
+    
+    <script src="https://cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
+
     <script src="<?php echo base_url('assets/js/main.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/custom.js'); ?>"></script>
 
