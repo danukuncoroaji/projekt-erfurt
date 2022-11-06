@@ -124,7 +124,7 @@ class LoginController extends BaseController
                 'nama' => $this->request->getVar('nama'),
                 'username' => $this->request->getVar('username'),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
-                'level' => 2
+                'level' => 3
             ]);  
 
             session()->setFlashdata('success', "Registrasi berhasil, silahkan masuk.");

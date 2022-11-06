@@ -14,7 +14,7 @@ class Pengumuman extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['judul','isi','tanggal','author','gambar'];
+    protected $allowedFields    = ['judul','isi','author'];
 
     // Dates
     protected $useTimestamps = true;

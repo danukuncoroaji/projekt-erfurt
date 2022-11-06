@@ -22,15 +22,10 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="<?= base_url(''); ?>">Beranda</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Pengaduan</li>
+                    <li class="breadcrumb-item active" aria-current="page">Pengumuman</li>
                 </ol>
             </nav>
-            <h1>Pengaduan</h1>
-            <span>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis viverra dapibus.<br>Maecenas
-                eleifend augue convallis tellus rhoncus scelerisque. Aliquam eu nunc sit amet velit pharetra cursus, <a
-                    href="#">disini</a>.
-            </span>
+            <h1>Pengumuman</h1>
         </div>
         <div class="card">
             <div class="card-body">
@@ -39,36 +34,36 @@
                         <tr>
                             <th>No</th>
                             <th>Judul</th>
-                            <th>Kategori</th>
                             <th>Tanggal</th>
-                            <th>Status</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $i= 1;
-                        foreach($pengaduans as $pengaduan){ ?>
+                        foreach($pengumumans as $pengumuman){ ?>
                         <tr>
-                            <td><?= $i; ?></td>
-                            <td><?= $pengaduan['judul']; ?></td>
-                            <td><span class="badge badge-secondary"><?= $pengaduan['kategori']; ?></span></td>
-                            <td><?= $pengaduan['created_at']; ?></td>
                             <td>
-                                <?php if($pengaduan['status'] == 1){ ?>
-                                    <span class="badge badge-info">Peninjauan</span>
-                                    <?php }else if($pengaduan['status'] == 2){ ?>
-                                    <span class="badge badge-warning">Pemrosesan</span>
-                                    <?php }else if($pengaduan['status'] == 3){ ?>
-                                    <span class="badge badge-primary">Tindak Lanjut</span>
-                                    <?php }else if($pengaduan['status'] == 4){ ?>
-                                    <span class="badge badge-success">Ditutup</span>
-                                    <?php } ?>
+                                <?= $i; ?>
                             </td>
                             <td>
-                                <a href="<?= base_url('app/pengaduan/detail/'. $pengaduan['id']); ?>"
+                                <?= $pengumuman['judul']; ?>
+                            </td>
+                            <td>
+                                <?= $pengumuman['updated_at']; ?>
+                            </td>
+
+                            <td>
+                                <a href="<?= base_url('app/pengumuman/detail/'. $pengumuman['id']); ?>"
                                     class="btn btn-info btn-sm">Detail</a>
+                                    <?php if($session->get('level') == 1 || $session->get('level') == 2){ ?>
+                                <a href="<?= base_url('app/pengumuman/edit/'. $pengumuman['id']); ?>"
+                                    class="btn btn-warning btn-sm">Edit</a>
+                                <a href="<?= base_url('app/pengumuman/delete/'. $pengumuman['id']); ?>"
+                                    class="btn btn-danger btn-sm">Hapus</a>
+                                <?php } ?>
                             </td>
+
                         </tr>
                         <?php $i++; } ?>
                     </tbody>
@@ -76,18 +71,16 @@
                         <tr>
                             <th>No</th>
                             <th>Judul</th>
-                            <th>Kategori</th>
                             <th>Tanggal</th>
-                            <th>Status</th>
                             <th>Aksi</th>
                         </tr>
                     </tfoot>
                 </table>
             </div>
-            <?php if($session->get('level') == 3){ ?>
+            <?php if($session->get('level') == 1 || $session->get('level') == 2){ ?>
             <div class="card-footer">
-                <a href="<?= base_url('app/pengaduan/tambah'); ?>" class="btn btn-success"><i
-                        class="material-icons">add</i> Tambah Pengaduan</a>
+                <a href="<?= base_url('app/pengumuman/tambah'); ?>" class="btn btn-success"><i
+                        class="material-icons">add</i> Tambah Pengumuman</a>
             </div>
             <?php } ?>
         </div>

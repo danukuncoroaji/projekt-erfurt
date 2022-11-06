@@ -43,11 +43,12 @@
     <script src="<?php echo base_url('assets/plugins/perfectscroll/perfect-scrollbar.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/plugins/pace/pace.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/plugins/apexcharts/apexcharts.min.js'); ?>"></script>
-    
+
     <script src="https://cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
 
     <script src="<?php echo base_url('assets/js/main.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/custom.js'); ?>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -58,8 +59,8 @@
 </head>
 
 <body>
-    <div class="app align-content-stretch d-flex flex-wrap">
-        <?= $this->include('app/layout/sidebar') ?>
+<div class="app full-width-header align-content-stretch d-flex flex-wrap">
+        <?=$this->include('app/layout/sidebar')?>
         <div class="app-container">
             <div class="app-header">
                 <nav class="navbar navbar-light navbar-expand-lg">
@@ -76,12 +77,12 @@
                                         <i class="material-icons">add</i>
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="addDropdownLink">
-                                        <?php if($session->get('level') == 2){ ?>
+                                        <?php if ($session->get('level') == 3) {?>
                                         <li><a class="dropdown-item" href="#">Tambah Pengaduan</a></li>
-                                        <?php } ?>
-                                        <?php if($session->get('level') == 1){ ?>
+                                        <?php }?>
+                                        <?php if ($session->get('level') == 1 || $session->get('level') == 2) {?>
                                         <li><a class="dropdown-item" href="#">Tambah Pengumuman</a></li>
-                                        <?php } ?>
+                                        <?php }?>
                                     </ul>
                                 </li>
                             </ul>
@@ -100,7 +101,7 @@
             <div class="app-content">
                 <div class="content-wrapper">
                     <div class="container-fluid">
-                        <?= $this->renderSection('content') ?>
+                        <?=$this->renderSection('content')?>
                     </div>
                 </div>
             </div>

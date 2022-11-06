@@ -179,11 +179,11 @@ class PengaduanController extends BaseController
             }
 
             session()->setFlashdata('success', "Pengaduan berhasil diupdate.");
-            return redirect()->to('/app/pengaduan/detail/'.$id_pengaduan);
+            return redirect()->to('/app/pengumuman/detail/'.$id_pengaduan);
 
         } catch (\Exception$e) {
             session()->setFlashdata('error', $e->getMessage());
-            return redirect()->to('/app/pengaduan/detail/'.$id_pengaduan)->withInput(); //->with('validation', $this->validator);
+            return redirect()->to('/app/pengumuman/detail/'.$id_pengaduan)->withInput(); //->with('validation', $this->validator);
         }
     }
 

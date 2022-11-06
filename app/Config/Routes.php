@@ -37,8 +37,6 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 // $routes->get('/', 'Home::index');
 $routes->get('/', 'LandingController::index');
-$routes->get('/pengaduan', 'LandingController::pengaduan');
-$routes->get('/pengaduan/detail/(:any)', 'LandingController::pengaduanDetail/$1');
 $routes->get('/pengumuman/', 'LandingController::pengumuman');
 $routes->get('/pengumuman/detail/(:any)', 'LandingController::PengumumanDetail/$1');
 
@@ -77,10 +75,11 @@ $routes->post('/app/pengaduan/komentar', 'PengaduanController::komentar',['filte
 // $routes->get('/app/pengaduan/delete/(:any)', 'PengaduanController::delete/$1',['filter' => 'authGuard']);
 
 $routes->get('/app/pengumuman', 'PengumumanController::index',['filter' => 'authGuard']);
-$routes->get('/app/pengumuman/create', 'PengumumanController::create',['filter' => 'authGuard']);
+$routes->get('/app/pengumuman/tambah', 'PengumumanController::create',['filter' => 'authGuard']);
 $routes->post('/app/pengumuman/store', 'PengumumanController::store',['filter' => 'authGuard']);
-$routes->get('/app/pengumuman/(:any)', 'PengumumanController::edit/$1',['filter' => 'authGuard']);
-$routes->post('/app/pengumuman/(:any)', 'PengumumanController::update/$1',['filter' => 'authGuard']);
+$routes->get('/app/pengumuman/detail/(:any)', 'PengumumanController::detail/$1',['filter' => 'authGuard']);
+$routes->get('/app/pengumuman/edit/(:any)', 'PengumumanController::edit/$1',['filter' => 'authGuard']);
+$routes->post('/app/pengumuman/update/(:any)', 'PengumumanController::update/$1',['filter' => 'authGuard']);
 $routes->get('/app/pengumuman/delete/(:any)', 'PengumumanController::delete/$1',['filter' => 'authGuard']);
 
 /*
