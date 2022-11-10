@@ -60,6 +60,34 @@
                 </ul>
             </li>
             <?php } ?>
+            <?php if ($session->get('level') == 1) {?>
+            <li <?php if(str_contains(base_url(uri_string()),'user')){ ?> class="active-page" <?php } ?>>
+                <a href="#"><i class="material-icons-two-tone">more_vert</i>Kategori<i
+                        class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="<?php echo base_url('/app/kategori'); ?>">List</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url('/app/kategori/tambah'); ?>">Tambah</a>
+                    </li>
+                </ul>
+            </li>
+            <?php } ?>
+            <?php if ($session->get('level') == 1) {?>
+            <li <?php if(str_contains(base_url(uri_string()),'user')){ ?> class="active-page" <?php } ?>>
+                <a href="#"><i class="material-icons-two-tone">group</i>User<i
+                        class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="<?php echo base_url('/app/user'); ?>">List</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url('/app/user/tambah'); ?>">Tambah</a>
+                    </li>
+                </ul>
+            </li>
+            <?php } ?>
             <li>
                 <a href="<?php echo base_url('/app/logout'); ?>"><i class="material-icons-two-tone">meeting_room</i>Keluar</a>
             </li>

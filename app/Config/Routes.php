@@ -82,6 +82,21 @@ $routes->get('/app/pengumuman/edit/(:any)', 'PengumumanController::edit/$1',['fi
 $routes->post('/app/pengumuman/update/(:any)', 'PengumumanController::update/$1',['filter' => 'authGuard']);
 $routes->get('/app/pengumuman/delete/(:any)', 'PengumumanController::delete/$1',['filter' => 'authGuard']);
 
+$routes->get('/app/user', 'UserController::index',['filter' => 'authGuard']);
+$routes->get('/app/user/tambah', 'UserController::create',['filter' => 'authGuard']);
+$routes->post('/app/user/store', 'UserController::store',['filter' => 'authGuard']);
+$routes->get('/app/user/detail/(:any)', 'UserController::detail/$1',['filter' => 'authGuard']);
+$routes->get('/app/user/edit/(:any)', 'UserController::edit/$1',['filter' => 'authGuard']);
+$routes->post('/app/user/update/(:any)', 'UserController::update/$1',['filter' => 'authGuard']);
+$routes->get('/app/user/delete/(:any)', 'UserController::delete/$1',['filter' => 'authGuard']);
+
+$routes->get('/app/kategori', 'KategoriController::index',['filter' => 'authGuard']);
+$routes->get('/app/kategori/tambah', 'KategoriController::create',['filter' => 'authGuard']);
+$routes->post('/app/kategori/store', 'KategoriController::store',['filter' => 'authGuard']);
+$routes->get('/app/kategori/edit/(:any)', 'KategoriController::edit/$1',['filter' => 'authGuard']);
+$routes->post('/app/kategori/update/(:any)', 'KategoriController::update/$1',['filter' => 'authGuard']);
+$routes->get('/app/kategori/delete/(:any)', 'KategoriController::delete/$1',['filter' => 'authGuard']);
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

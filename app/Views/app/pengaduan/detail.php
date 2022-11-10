@@ -239,7 +239,7 @@
                     </div>
                 </div>
             </div>
-            <?php if($session->get('level') == 1){ ?>
+            <?php if($session->get('level') == 2){ ?>
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
