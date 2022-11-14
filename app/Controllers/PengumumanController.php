@@ -20,12 +20,12 @@ class PengumumanController extends BaseController
         $this->data['validation'] = \Config\Services::validation();
         $this->level = $this->session->get('level');
 
+        $this->user = new User();
+        $this->pengumuman = new Pengumuman();
+
         if($this->level !== 1){
             return redirect()->to('/');
         }
-
-        $this->user = new User();
-        $this->pengumuman = new Pengumuman();
     }
 
     public function index()
