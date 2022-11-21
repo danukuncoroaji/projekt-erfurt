@@ -57,6 +57,13 @@
                                 </div>
                                 <div class="col-12 col-lg-6 mb-4">
                                     <div class="form-group">
+                                        <label for="jenis" class="form-label">Jenis Pengaduan</label>
+                                        <input type="text" class="form-control" value="<?= $pengaduan['kategori_pengaduan']; ?>"
+                                            disabled>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6 mb-4">
+                                    <div class="form-group">
                                         <label for="kategori" class="form-label">Kategori Pengaduan</label>
                                         <input type="text" class="form-control" value="<?= $pengaduan['kategori']; ?>"
                                             disabled>

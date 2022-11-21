@@ -38,7 +38,12 @@ class PengaduanController extends BaseController
     public function index()
     {
         $data = [];
-        $pengaduans = $this->pengaduan->findAll();
+        if($this->level == 1 || $this->level == 2){
+            $pengaduans = $this->pengaduan->findAll();
+        }else if($this->level == 3){
+            $pengaduans = $this->pengaduan->where('id_user',$this->session->get('id'))->findAll();
+        }
+        
         foreach ($pengaduans as $key => $array) {
             $pengaduans[$key]['kategori'] = $this->kategori->find($pengaduans[$key]['id_kategori'])['judul'];
         }
@@ -74,6 +79,7 @@ class PengaduanController extends BaseController
                 'id_kategori' => $this->request->getVar('kategori'),
                 'id_user' => $this->session->get('id'),
                 'judul' => $this->request->getVar('judul'),
+                'kategori_pengaduan' => $this->request->getVar('jenis'),
                 'status' => 1,
             ]);
 

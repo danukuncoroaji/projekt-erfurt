@@ -14,7 +14,7 @@ class Pengaduan extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_user','id_kategori','judul','status'];
+    protected $allowedFields    = ['id_user','id_kategori','judul','status','kategori_pengaduan'];
 
     // Dates
     protected $useTimestamps = true;

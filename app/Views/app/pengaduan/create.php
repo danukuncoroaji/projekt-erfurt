@@ -32,7 +32,7 @@
             <form method="POST" action="<?= base_url('app/pengaduan/store'); ?>" id="form-tambah" enctype="multipart/form-data">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-12 col-lg-6 mb-4">
+                        <div class="col-12 col-lg-12 mb-4">
                             <div class="form-group">
                                 <label for="judul" class="form-label">Judul</label>
                                 <input type="text"
@@ -45,6 +45,17 @@
                                 <?php }else{ ?>
                                 <div id="judul" class="form-text">Judul dari pengaduan anda.</div>
                                 <?php } ?>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 mb-4">
+                            <div class="form-group">
+                                <label for="jenis" class="form-label">Jenis Pengaduan</label>
+                                <select class="form-select" name="jenis" aria-label="Jenis Pengaduan">
+                                    <option value="pengaduan">pengaduan</option>
+                                    <option value="saran">saran</option>
+                                    <option value="kritik">kritik</option>
+                                </select>
+                                <div id="judul" class="form-text">Pilih jenis dari pengaduan anda.</div>
                             </div>
                         </div>
                         <div class="col-12 col-lg-6 mb-4">

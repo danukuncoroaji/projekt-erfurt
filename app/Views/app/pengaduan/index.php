@@ -39,6 +39,7 @@
                         <tr>
                             <th>No</th>
                             <th>Judul</th>
+                            <th>Jenis</th>
                             <th>Kategori</th>
                             <th>Tanggal</th>
                             <th>Status</th>
@@ -52,6 +53,7 @@
                         <tr>
                             <td><?= $i; ?></td>
                             <td><?= $pengaduan['judul']; ?></td>
+                            <td><?= $pengaduan['kategori_pengaduan']; ?></td>
                             <td><span class="badge badge-secondary"><?= $pengaduan['kategori']; ?></span></td>
                             <td><?= $pengaduan['created_at']; ?></td>
                             <td>
@@ -76,6 +78,7 @@
                         <tr>
                             <th>No</th>
                             <th>Judul</th>
+                            <th>Jenis</th>
                             <th>Kategori</th>
                             <th>Tanggal</th>
                             <th>Status</th>

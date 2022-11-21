@@ -11,11 +11,9 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
     <style>
-        .top-background {
+        body {
             background: url('<?=base_url(' assets/images/background.jpg');?>');
             background-size: contain;
-            background-position: center center;
-            height: 25vh;
         }
     </style>
 </head>
@@ -45,6 +43,69 @@
             </div>
         </div>
     </nav>
-    <div class="top-background d-none d-md-block"></div>
     <?=$this->renderSection('content')?>
+    <!-- Footer -->
+    <footer class="text-center text-lg-start text-white" style="background-color: #2c3e50;">
+
+        <!-- Section: Links  -->
+        <section class="pt-4">
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            <i class="fas fa-gem"></i>SIPDEPO
+                        </h6>
+                        <p>
+                            sidepo online adalah sarana yang disediakan pemerintah desa kedawung pojok.
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Layanan
+                        </h6>
+                        <p>
+                            <a href="<?=base_url('/app/login');?>" class="text-reset">Masuk</a>
+                        </p>
+                        <p>
+                            <a href="<?=base_url('/app/register');?>" class="text-reset">Daftar</a>
+                        </p>
+                        <p>
+                            <a href="<?=base_url('/app/pengumuman');?>" class="text-reset">Pengumuman</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">Kontak Kami</h6>
+                        <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+                        <p>
+                            <i class="fas fa-envelope me-3"></i>
+                            info@example.com
+                        </p>
+                        <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+                        <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+
+        <!-- Copyright -->
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            © <?= date('Y') ?> Copyright Desa Kedawung
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
 </body>

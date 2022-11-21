@@ -1,6 +1,8 @@
 <?= $this->extend('landing/layout/default') ?>
 <?= $this->section('content') ?>
 <div class="container py-5">
+<div class="card">
+        <div class="card-body">
     <div class="col-lg-8 col-offsetlg-2 col-12 mx-auto">
         <div class="row mt-2">
             <div class="col-12 text-center mb-5">
@@ -8,10 +10,7 @@
                 <hr>
             </div>
             <div class="col-12">
-                <p>In hac habitasse platea dictumst. Vivamus ut convallis risus. Donec a dolor purus. Pellentesque eros
-                    ex, vehicula vitae porttitor maximus, sollicitudin ut libero. Ut vehicula massa magna, vitae
-                    tincidunt turpis iaculis vitae. Nam rhoncus nisl ligula, sit amet suscipit erat ultricies et. Fusce
-                    hendrerit ipsum dignissim, aliquam magna vel, luctus lectus.</p>
+                <p>sidepo online adalah sarana yang disediakan pemerintah desa kedawung pojok untuk menjembatani sekaligus memudahkan warga kedawung pojok khususnya untuk menyuarakan aspirasi maupun pengaduan kepada pemerintah desa kedawung pojok. silahkan adukan aduan anda untuk desa kedawung pojok yang lebih baik.</p>
             </div>
             <div class="col-12 col-lg-3 col-md-4">
                 <div class="card bg-light">
@@ -121,5 +120,7 @@
             </div>
         </div>
     </div>
+</div>
+</div>
 </div>
 <?= $this->endSection() ?>
