@@ -57,7 +57,7 @@ class PengaduanController extends BaseController
         return view('app/pengaduan/create', $this->data);
     }
 
-    public function store(Type $var = null)
+    public function store()
     {
         try {
             $valid = $this->validate([
