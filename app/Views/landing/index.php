@@ -13,38 +13,34 @@
                 <p>sidepo online adalah sarana yang disediakan pemerintah desa kedawung pojok untuk menjembatani sekaligus memudahkan warga kedawung pojok khususnya untuk menyuarakan aspirasi maupun pengaduan kepada pemerintah desa kedawung pojok. silahkan adukan aduan anda untuk desa kedawung pojok yang lebih baik.</p>
             </div>
             <div class="col-12 col-lg-3 col-md-4">
-                <div class="card bg-light">
+                <div class="card bg-light" style="height: 15vh;">
                     <div class="card-body">
                         <h2>1.</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tristique orci nec lacus
-                            vehicula facilisis.</p>
+                        <p>Tulis Aduan Anda.</p>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-lg-3 col-md-4">
-                <div class="card bg-light">
+                <div class="card bg-light" style="height: 15vh;">
                     <div class="card-body">
                         <h2>2.</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tristique orci nec lacus
-                            vehicula facilisis.</p>
+                        <p>Pengaduan diterima dan diverifikasi.</p>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-lg-3 col-md-4">
-                <div class="card bg-light">
+                <div class="card bg-light" style="height: 15vh;">
                     <div class="card-body">
                         <h2>3.</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tristique orci nec lacus
-                            vehicula facilisis.</p>
+                        <p>Tindaklanjut.</p>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-lg-3 col-md-4">
-                <div class="card bg-light">
+                <div class="card bg-light" style="height: 15vh;">
                     <div class="card-body">
                         <h2>3.</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tristique orci nec lacus
-                            vehicula facilisis.</p>
+                        <p>Selesai.</p>
                     </div>
                 </div>
             </div>
@@ -52,7 +48,7 @@
                 <hr>
             </div>
             <div class="col-12 text-center mb-3 mt-4">
-                <h3>Data - data</h3>
+                <h3>Statistik</h3>
             </div>
             <div class="col-12 col-lg-4 col-md-4">
                 <div class="card bg-primary text-white">

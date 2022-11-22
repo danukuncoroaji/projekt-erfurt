@@ -22,10 +22,10 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="<?= base_url(''); ?>">Beranda</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">User</li>
+                    <li class="breadcrumb-item active" aria-current="page">Kategori</li>
                 </ol>
             </nav>
-            <h1>User</h1>
+            <h1>Kategori</h1>
         </div>
         <div class="card">
             <div class="card-body">

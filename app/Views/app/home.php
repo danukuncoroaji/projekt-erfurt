@@ -47,5 +47,19 @@
                 });
     </script>
 </div>
+<?php }else{ ?>
+    <div class="col">
+        <div class="page-description">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">Beranda</li>
+                </ol>
+            </nav>
+            <h1>Selamat Datang !</h1>
+            <span>
+                Apa yang ingin anda adukan hari ini?
+            </span>
+        </div>
+    </div>
 <?php } ?>
 <?=$this->endSection()?>

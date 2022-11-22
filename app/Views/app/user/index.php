@@ -54,7 +54,9 @@
                                 <?= $user['username']; ?>
                             </td>
                             <td>
-                                <?= $user['level']; ?>
+                                <?php if($user['level'] == '1'){ echo "Admin"; };?>
+                                <?php if($user['level'] == '2'){ echo "Pegawai"; };?>
+                                <?php if($user['level'] == '3'){ echo "Warga"; };?>
                             </td>
 
                             <td>
