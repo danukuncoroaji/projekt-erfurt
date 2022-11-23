@@ -86,12 +86,12 @@
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                         <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">Kontak Kami</h6>
-                        <p><i class="fas fa-home me-3"></i> Jl. Kantor Desa, Pojok, Dampit, Malang Regency, East Java 65181, Indonesia</p>
+                        <p><i class="fas fa-home"></i>Jl. Kantor Desa, Pojok, Dampit, Malang Regency, East Java 65181, Indonesia</p>
                         <p>
-                            <i class="fas fa-envelope me-3"></i>
+                            <i class="fas fa-envelope"></i>
                             desapojok11@gmail.com
                         </p>
-                        <p><i class="fas fa-phone me-3"></i> +62 821 4134 0728</p>
+                        <p><i class="fas fa-phone"></i> +62 821 4134 0728</p>
                     </div>
                     <!-- Grid column -->
                 </div>
