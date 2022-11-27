@@ -3,7 +3,13 @@
         <a href="index.html" class="logo-icon"><span class="logo-text">SIPDEPO</span></a>
         <div class="sidebar-user-switcher user-activity-online">
             <a href="#">
-                <img src="../../assets/images/avatars/avatar.png">
+                <img src="<?php 
+                if($session->get('level') == 1 || $session->get('level') == 2){
+                    echo base_url('/assets/images/avatars/admin.png');
+                }else{
+                    echo base_url('/assets/images/avatars/user.png');
+                }
+                ?>">
                 <span class="activity-indicator"></span>
                 <span class="user-info-text"><?= $session->get('nama'); ?><br><span class="user-state-info">
                     <?php if($session->get('level') == 1 || $session->get('level') == 2){ echo 'Staf Kantor'; }else{ echo 'Masyarakat'; } ?>

@@ -19,11 +19,6 @@
                 </ol>
             </nav>
             <h1>Tambah Pengaduan</h1>
-            <span>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis viverra dapibus.<br>Maecenas
-                eleifend augue convallis tellus rhoncus scelerisque. Aliquam eu nunc sit amet velit pharetra cursus, <a
-                    href="#">disini</a>.
-            </span>
         </div>
         <div class="card">
             <div class="card-header">
