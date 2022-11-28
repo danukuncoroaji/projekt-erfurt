@@ -63,7 +63,7 @@ class PengaduanController extends BaseController
             $valid = $this->validate([
                 'judul' => 'required',
                 'isi' => 'required',
-                'lampiran' => 'uploaded[lampiran]|is_image[lampiran]|max_size[lampiran,4096]',
+                // 'lampiran' => 'uploaded[lampiran]|is_image[lampiran]|max_size[lampiran,4096]',
             ]);
 
             if (!$valid) {
@@ -93,19 +93,21 @@ class PengaduanController extends BaseController
 
             $files = $this->request->getFileMultiple('lampiran');
 
-            foreach ($files as $file) {
-                if ($file->isValid() && !$file->hasMoved()) {
-                    $name = $file->getRandomName();
-                    $file->move(ROOTPATH . 'public/assets/uploads/lampiran', $name);
-                    $path = 'assets/uploads/lampiran/' . $name;
-                    $this->gambar->insert([
-                        'id_detail_pengaduan' => $id_detail_pengaduan,
-                        'id_pengaduan' => $id_pengaduan,
-                        'filename' => $name,
-                        'path' => $path,
-                        'filesize' => $file->getSizeByUnit('kb'),
-                        'format' => $file->getClientMimeType(),
-                    ]);
+            if($files){
+                foreach ($files as $file) {
+                    if ($file->isValid() && !$file->hasMoved()) {
+                        $name = $file->getRandomName();
+                        $file->move(ROOTPATH . 'public/assets/uploads/lampiran', $name);
+                        $path = 'assets/uploads/lampiran/' . $name;
+                        $this->gambar->insert([
+                            'id_detail_pengaduan' => $id_detail_pengaduan,
+                            'id_pengaduan' => $id_pengaduan,
+                            'filename' => $name,
+                            'path' => $path,
+                            'filesize' => $file->getSizeByUnit('kb'),
+                            'format' => $file->getClientMimeType(),
+                        ]);
+                    }
                 }
             }
 
