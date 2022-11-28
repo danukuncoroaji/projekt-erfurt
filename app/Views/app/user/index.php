@@ -62,8 +62,6 @@
                             <td>
                                 <a href="<?= base_url('app/user/edit/'. $user['id']); ?>"
                                     class="btn btn-warning btn-sm">Edit</a>
-                                <a href="<?= base_url('app/user/delete/'. $user['id']); ?>"
-                                    class="btn btn-danger btn-sm">Hapus</a>
                             </td>
 
                         </tr>
