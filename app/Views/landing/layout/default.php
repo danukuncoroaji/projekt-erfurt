@@ -3,6 +3,10 @@
 
 <head>
     <title>Sistem Informasi Pengaduan Desa Pojok</title>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="<?=base_url('assets/images/neptune.png');?>" />
+    <link rel="icon" type="image/png" sizes="16x16" href="<?=base_url('assets/images/neptune.png');?>" />
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"

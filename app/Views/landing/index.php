@@ -15,7 +15,7 @@
             <div class="col-12 col-lg-3 col-md-4">
                 <div class="card bg-light">
                     <div class="card-body">
-                        <h2>1.</h2>
+                        <a class="btn btn-lg rounded-circle mb-3 text-white" style="background-color: #e67e22 !important;" href="#">1</a>
                         <p>Tulis Aduan Anda.</p>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
             <div class="col-12 col-lg-3 col-md-4">
                 <div class="card bg-light">
                     <div class="card-body">
-                        <h2>2.</h2>
+                    <a class="btn btn-lg rounded-circle mb-3 text-white" style="background-color: #e67e22 !important;" href="#">2</a>
                         <p>Pengaduan diterima dan diverifikasi.</p>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
             <div class="col-12 col-lg-3 col-md-4">
                 <div class="card bg-light">
                     <div class="card-body">
-                        <h2>3.</h2>
+                        <a class="btn btn-lg rounded-circle mb-3 text-white" href="#" style="background-color: #e67e22 !important;">3</a>
                         <p>Tindaklanjut.</p>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
             <div class="col-12 col-lg-3 col-md-4">
                 <div class="card bg-light">
                     <div class="card-body">
-                        <h2>4.</h2>
+                        <a class="btn btn-lg rounded-circle mb-3 text-white" style="background-color: #e67e22 !important;" href="#">4</a>
                         <p>Selesai.</p>
                     </div>
                 </div>
