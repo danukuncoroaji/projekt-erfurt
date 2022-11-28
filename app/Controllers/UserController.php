@@ -111,7 +111,7 @@ class UserController extends BaseController
     {
         try {
 
-            $this->user->delete(['id' => $id]);
+            $this->user->delete($id);
 
             session()->setFlashdata('success', "User berhasil dihapus.");
 

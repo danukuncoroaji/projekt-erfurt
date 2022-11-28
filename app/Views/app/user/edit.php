@@ -40,22 +40,11 @@
                                 <?php } ?>
                             </div>
                             <div class="form-group">
-                                <label for="nama" class="form-label">Username</label>
-                                <input type="text"
-                                    class="form-control <?php if($validation->getError('username')){ echo 'is-invalid'; } ?>"
-                                    name="username" id="username" aria-describedby="username" value="<?= $user['username']; ?>">
-                                <?php if($validation->getError('username')){ ?>
-                                <small class="text-danger">
-                                    <?php echo $validation->getError('username'); ?>
-                                </small>
-                                <?php } ?>
-                            </div>
-                            <div class="form-group">
                                 <label for="nama" class="form-label">Level</label>
                                 <select name="level" class="form-control" name="level">
-                                    <option value="1" selected>Admin</option>
-                                    <option value="2">Pegawai</option>
-                                    <option value="3">Warga</option>
+                                    <option value="1" <?php echo $user['level'] == '1' ? 'selected' : '' ; ?>>Admin</option>
+                                    <option value="2" <?php echo $user['level'] == '2' ? 'selected' : '' ; ?>>Pegawai</option>
+                                    <option value="3" <?php echo $user['level'] == '3' ? 'selected' : '' ; ?>>Warga</option>
                                 </select>
                             </div>
                             <div class="form-group">
