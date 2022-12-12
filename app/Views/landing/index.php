@@ -9,14 +9,15 @@
                 <h1>Selamat Datang di<br>Sistem Informasi Pengaduan Desa Pojok<br>( SIPDEPO )</h1>
                 <hr>
             </div>
-            <div class="col-12">
-                <p>sidepo online adalah sarana yang disediakan pemerintah desa kedawung pojok untuk menjembatani sekaligus memudahkan warga kedawung pojok khususnya untuk menyuarakan aspirasi maupun pengaduan kepada pemerintah desa kedawung pojok. silahkan adukan aduan anda untuk desa kedawung pojok yang lebih baik.</p>
+            <div class="col-12 mb-4">
+                <h5>sidepo online adalah sarana yang disediakan pemerintah desa kedawung pojok untuk menjembatani sekaligus memudahkan warga kedawung pojok khususnya untuk menyuarakan aspirasi maupun pengaduan kepada pemerintah desa kedawung pojok. silahkan adukan aduan anda untuk desa kedawung pojok yang lebih baik.</h5>
             </div>
             <div class="col-12 col-lg-3 col-md-4">
                 <div class="card bg-light">
                     <div class="card-body">
                         <a class="btn btn-lg rounded-circle mb-3 text-white" style="background-color: #e67e22 !important;" href="#">1</a>
-                        <p>Tulis Aduan Anda.</p>
+                        <br>
+                        <strong>Tulis Aduan Anda.</strong>
                     </div>
                 </div>
             </div>
@@ -24,7 +25,8 @@
                 <div class="card bg-light">
                     <div class="card-body">
                     <a class="btn btn-lg rounded-circle mb-3 text-white" style="background-color: #e67e22 !important;" href="#">2</a>
-                        <p>Pengaduan diterima dan diverifikasi.</p>
+                    <br>
+                    <strong>Pengaduan diterima dan diverifikasi.</strong>
                     </div>
                 </div>
             </div>
@@ -32,7 +34,8 @@
                 <div class="card bg-light">
                     <div class="card-body">
                         <a class="btn btn-lg rounded-circle mb-3 text-white" href="#" style="background-color: #e67e22 !important;">3</a>
-                        <p>Tindaklanjut.</p>
+                        <br>
+                        <strong>Tindaklanjut.</strong>
                     </div>
                 </div>
             </div>
@@ -40,7 +43,8 @@
                 <div class="card bg-light">
                     <div class="card-body">
                         <a class="btn btn-lg rounded-circle mb-3 text-white" style="background-color: #e67e22 !important;" href="#">4</a>
-                        <p>Selesai.</p>
+                        <br>
+                        <strong>Selesai.</strong>
                     </div>
                 </div>
             </div>
