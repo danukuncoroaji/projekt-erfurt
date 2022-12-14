@@ -38,12 +38,12 @@ class PengaduanController extends BaseController
     public function index()
     {
         $data = [];
-        if($this->level == 1 || $this->level == 2){
+        if ($this->level == 1 || $this->level == 2) {
             $pengaduans = $this->pengaduan->findAll();
-        }else if($this->level == 3){
-            $pengaduans = $this->pengaduan->where('id_user',$this->session->get('id'))->findAll();
+        } else if ($this->level == 3) {
+            $pengaduans = $this->pengaduan->where('id_user', $this->session->get('id'))->findAll();
         }
-        
+
         foreach ($pengaduans as $key => $array) {
             $pengaduans[$key]['kategori'] = $this->kategori->find($pengaduans[$key]['id_kategori'])['judul'];
         }
@@ -93,7 +93,7 @@ class PengaduanController extends BaseController
 
             $files = $this->request->getFileMultiple('lampiran');
 
-            if($files){
+            if ($files) {
                 foreach ($files as $file) {
                     if ($file->isValid() && !$file->hasMoved()) {
                         $name = $file->getRandomName();
@@ -113,8 +113,7 @@ class PengaduanController extends BaseController
 
             session()->setFlashdata('success', "Pengaduan berhasil ditambah.");
             return redirect()->to('/app/pengaduan');
-
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             session()->setFlashdata('error', $e->getMessage());
             return redirect()->to('/app/pengaduan/tambah')->withInput(); //->with('validation', $this->validator);
         }
@@ -122,19 +121,24 @@ class PengaduanController extends BaseController
 
     public function detail($id)
     {
-        $this->data['pengaduan'] = $this->pengaduan->find($id);
-        $this->data['pengaduan']['kategori'] = $this->kategori->find($this->data['pengaduan']['id_kategori'])['judul'];
-        $this->data['details'] = $this->detail->where('id_pengaduan', $id)->findAll();
-        foreach ($this->data['details'] as $key => $value) {
-            $this->data['details'][$key]['gambars'] = $this->gambar->where('id_detail_pengaduan', $this->data['details'][$key]['id'])->findAll();
+        try {
+            $this->data['pengaduan'] = $this->pengaduan->find($id);
+            $this->data['pengaduan']['kategori'] = $this->kategori->find($this->data['pengaduan']['id_kategori'])['judul'];
+            $this->data['details'] = $this->detail->where('id_pengaduan', $id)->findAll();
+            foreach ($this->data['details'] as $key => $value) {
+                $this->data['details'][$key]['gambars'] = $this->gambar->where('id_detail_pengaduan', $this->data['details'][$key]['id'])->findAll();
+            }
+            $this->data['komentars'] = $this->komentar->where('id_pengaduan', $id)->findAll();
+            foreach ($this->data['komentars'] as $key => $value) {
+                $this->data['komentars'][$key]['nama'] = $this->user->find($this->data['komentars'][$key]['id_user'])['nama'];
+            }
+            $this->data['status'] = $this->data['details'][array_key_last($this->data['details'])]['status'];
+            // dd($this->data);
+            return view('app/pengaduan/detail', $this->data);
+        } catch (\Exception $e) {
+            // session()->setFlashdata('error', $e->getMessage());
+            return redirect()->to('/app/pengaduan')->withInput(); //->with('validation', $this->validator);
         }
-        $this->data['komentars'] = $this->komentar->where('id_pengaduan', $id)->findAll();
-        foreach ($this->data['komentars'] as $key => $value) {
-            $this->data['komentars'][$key]['nama'] = $this->user->find($this->data['komentars'][$key]['id_user'])['nama'];
-        }
-        $this->data['status'] = $this->data['details'][array_key_last($this->data['details'])]['status'];
-        // dd($this->data);
-        return view('app/pengaduan/detail', $this->data);
     }
 
     public function update($id_pengaduan)
@@ -163,7 +167,7 @@ class PengaduanController extends BaseController
                 'status' => $this->request->getVar('status'),
             ]);
 
-            $this->pengaduan->update($id_pengaduan,[
+            $this->pengaduan->update($id_pengaduan, [
                 'status' => $this->request->getVar('status'),
             ]);
 
@@ -187,11 +191,10 @@ class PengaduanController extends BaseController
             }
 
             session()->setFlashdata('success', "Pengaduan berhasil diupdate.");
-            return redirect()->to('/app/pengaduan/detail/'.$id_pengaduan);
-
-        } catch (\Exception$e) {
+            return redirect()->to('/app/pengaduan/detail/' . $id_pengaduan);
+        } catch (\Exception $e) {
             session()->setFlashdata('error', $e->getMessage());
-            return redirect()->to('/app/pengaduan/detail/'.$id_pengaduan)->withInput(); //->with('validation', $this->validator);
+            return redirect()->to('/app/pengaduan/detail/' . $id_pengaduan)->withInput(); //->with('validation', $this->validator);
         }
     }
 
@@ -216,8 +219,7 @@ class PengaduanController extends BaseController
 
             session()->setFlashdata('success', "Komentar berhasil ditambah.");
             return redirect()->to('/app/pengaduan/detail/' . $id);
-
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             session()->setFlashdata('error', $e->getMessage());
             return redirect()->to('/app/pengaduan/detail/' . $id)->withInput(); //->with('validation', $this->validator);
         }
@@ -226,27 +228,30 @@ class PengaduanController extends BaseController
     public function delete($id)
     {
         try {
-            $details = $this->detail->where('id_pengaduan',$id)->findAll();
+            $details = $this->detail->where('id_pengaduan', $id)->findAll();
             foreach ($details as $detail) {
                 $gambars = $this->gambar->where('id_detail_pengaduan', $detail['id'])->findAll();
                 foreach ($gambars as $gambar) {
-                    if(file_exists($_SERVER['DOCUMENT_ROOT'] .'/'.$gambar['path'])){
-                        unlink($_SERVER['DOCUMENT_ROOT'] .'/'.$gambar['path']);
+                    if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/' . $gambar['path'])) {
+                        unlink($_SERVER['DOCUMENT_ROOT'] . '/' . $gambar['path']);
                     }
                     $this->gambar->delete(['id' => $gambar['id']]);
                 }
                 $this->detail->delete(['id' => $detail['id']]);
             }
-            $this->komentar->delete(["id_pengaduan" => $id]);
+            $komentars = $this->komentar->where('id_pengaduan', $id)->findAll();
+            foreach ($komentars as $komentar) {
+                $this->komentar->delete($komentar['id']);
+            }
+            // $this->komentar->delete(["id_pengaduan" => $id]);
 
             $this->pengaduan->delete(['id' => $id]);
 
             session()->setFlashdata('success', "Pengaduan berhasil dihapus.");
             return redirect()->to('/app/pengaduan');
-
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             session()->setFlashdata('error', $e->getMessage());
-            return redirect()->to('/app/pengaduan/detail/'.$id)->withInput(); //->with('validation', $this->validator);
+            return redirect()->to('/app/pengaduan/detail/' . $id)->withInput(); //->with('validation', $this->validator);
         }
     }
 }
