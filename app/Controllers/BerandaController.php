@@ -23,7 +23,7 @@ class BerandaController extends BaseController
 
     public function index()
     {
-        if ($this->level == 1 || $this->level == 2) {
+        if ($this->level == 1 || $this->level == 2 || $this->level == 4) {
             $warna = ['rgba(52, 152, 219,1.0)', 'rgba(231, 76, 60,1.0)'];
             $bulan = date('m');
             $tahun = date('Y');

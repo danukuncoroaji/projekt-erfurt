@@ -1,6 +1,6 @@
 <?=$this->extend('app/layout/default')?>
 <?=$this->section('content')?>
-<?php if($session->get('level') == 1 || $session->get('level') == 2){ ?>
+<?php if($session->get('level') == 1 || $session->get('level') == 2 || $session->get('level') == 4){ ?>
 <div class="row pb-5">
     <div class="col-12">
         <div class="card">

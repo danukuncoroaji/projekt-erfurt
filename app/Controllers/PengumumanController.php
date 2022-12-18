@@ -22,11 +22,6 @@ class PengumumanController extends BaseController
 
         $this->user = new User();
         $this->pengumuman = new Pengumuman();
-
-        if ($this->level === "3" || $this->level === "4") {
-            echo "403";
-            die();
-        }
     }
 
     public function index()
@@ -37,8 +32,9 @@ class PengumumanController extends BaseController
 
     public function create()
     {
-        if ($this->level !== "1" || $this->level !== "2") {
-            return redirect()->to('/app');
+        if ($this->level === "3" || $this->level === "4") {
+            echo "403";
+            die();
         }
         return view('app/pengumuman/create', $this->data);
     }
@@ -46,6 +42,11 @@ class PengumumanController extends BaseController
     public function store()
     {
         try {
+
+            if ($this->level === "3" || $this->level === "4") {
+                echo "403";
+                die();
+            }
 
             $valid = $this->validate([
                 'judul' => 'required',
@@ -72,17 +73,15 @@ class PengumumanController extends BaseController
 
     public function detail($id)
     {
-        if ($this->level !== "1" || $this->level !== "2") {
-            return redirect()->to('/app');
-        }
         $this->data['pengumuman'] = $this->pengumuman->find($id);
         return view('app/pengumuman/detail', $this->data);
     }
 
     public function edit($id)
     {
-        if ($this->level !== "1" || $this->level !== "2") {
-            return redirect()->to('/app');
+        if ($this->level === "3" || $this->level === "4") {
+            echo "403";
+            die();
         }
         $this->data['pengumuman'] = $this->pengumuman->find($id);
         return view('app/pengumuman/edit', $this->data);
@@ -91,8 +90,9 @@ class PengumumanController extends BaseController
     public function update($id)
     {
         try {
-            if ($this->level !== "1" || $this->level !== "2") {
-                return redirect()->to('/app');
+            if ($this->level === "3" || $this->level === "4") {
+                echo "403";
+                die();
             }
             $valid = $this->validate([
                 'judul' => 'required',
@@ -120,8 +120,9 @@ class PengumumanController extends BaseController
     public function delete($id)
     {
         try {
-            if ($this->level !== "1" || $this->level !== "2") {
-                return redirect()->to('/app');
+            if ($this->level === "3" || $this->level === "4") {
+                echo "403";
+                die();
             }
             $this->pengumuman->delete(['id' => $id]);
 
