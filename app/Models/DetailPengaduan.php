@@ -14,7 +14,7 @@ class Detailpengaduan extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_pengaduan','id_user','isi','tanggal','status'];
+    protected $allowedFields    = ['id_pengaduan','id_user','isi','tanggal','status', 'estimasi'];
 
     // Dates
     protected $useTimestamps = true;

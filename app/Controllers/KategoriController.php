@@ -22,6 +22,10 @@ class KategoriController extends BaseController
 
         $this->user = new User();
         $this->kategori = new Kategori();
+        if ($this->level === "3" || $this->level === "4") {
+            echo "403";
+            die();
+        }
     }
 
     public function index()
@@ -38,7 +42,6 @@ class KategoriController extends BaseController
     public function store()
     {
         try {
-
             $valid = $this->validate([
                 'judul' => 'required',
             ]);
@@ -68,7 +71,6 @@ class KategoriController extends BaseController
     public function update($id)
     {
         try {
-
             $valid = $this->validate([
                 'judul' => 'required',
             ]);

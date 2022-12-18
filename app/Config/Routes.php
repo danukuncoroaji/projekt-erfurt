@@ -97,6 +97,8 @@ $routes->get('/app/kategori/edit/(:any)', 'KategoriController::edit/$1',['filter
 $routes->post('/app/kategori/update/(:any)', 'KategoriController::update/$1',['filter' => 'authGuard']);
 $routes->get('/app/kategori/delete/(:any)', 'KategoriController::delete/$1',['filter' => 'authGuard']);
 
+$routes->get('/app/laporan', 'LaporanController::index',['filter' => 'authGuard']);
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -23,8 +23,9 @@ class PengumumanController extends BaseController
         $this->user = new User();
         $this->pengumuman = new Pengumuman();
 
-        if($this->level !== 1){
-            return redirect()->to('/');
+        if ($this->level === "3" || $this->level === "4") {
+            echo "403";
+            die();
         }
     }
 
@@ -36,6 +37,9 @@ class PengumumanController extends BaseController
 
     public function create()
     {
+        if ($this->level !== "1" || $this->level !== "2") {
+            return redirect()->to('/app');
+        }
         return view('app/pengumuman/create', $this->data);
     }
 
@@ -60,7 +64,7 @@ class PengumumanController extends BaseController
 
             session()->setFlashdata('success', "Pengumuman berhasil ditambah.");
             return redirect()->to('/app/pengumuman');
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             session()->setFlashdata('error', $e->getMessage());
             return redirect()->to('/app/pengumuman/tambah')->withInput(); //->with('validation', $this->validator);
         }
@@ -68,12 +72,18 @@ class PengumumanController extends BaseController
 
     public function detail($id)
     {
+        if ($this->level !== "1" || $this->level !== "2") {
+            return redirect()->to('/app');
+        }
         $this->data['pengumuman'] = $this->pengumuman->find($id);
         return view('app/pengumuman/detail', $this->data);
     }
 
     public function edit($id)
     {
+        if ($this->level !== "1" || $this->level !== "2") {
+            return redirect()->to('/app');
+        }
         $this->data['pengumuman'] = $this->pengumuman->find($id);
         return view('app/pengumuman/edit', $this->data);
     }
@@ -81,7 +91,9 @@ class PengumumanController extends BaseController
     public function update($id)
     {
         try {
-
+            if ($this->level !== "1" || $this->level !== "2") {
+                return redirect()->to('/app');
+            }
             $valid = $this->validate([
                 'judul' => 'required',
                 'isi' => 'required',
@@ -99,7 +111,7 @@ class PengumumanController extends BaseController
 
             session()->setFlashdata('success', "Pengumuman berhasil diubah.");
             return redirect()->to('/app/pengumuman');
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             session()->setFlashdata('error', $e->getMessage());
             return redirect()->to('/app/pengumuman/edit/' . $id)->withInput(); //->with('validation', $this->validator);
         }
@@ -108,12 +120,14 @@ class PengumumanController extends BaseController
     public function delete($id)
     {
         try {
-
+            if ($this->level !== "1" || $this->level !== "2") {
+                return redirect()->to('/app');
+            }
             $this->pengumuman->delete(['id' => $id]);
 
             session()->setFlashdata('success', "Pengumuman berhasil dihapus.");
             return redirect()->to('/app/pengumuman');
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             session()->setFlashdata('error', $e->getMessage());
             return redirect()->to('/app/pengumuman')->withInput(); //->with('validation', $this->validator);
         }

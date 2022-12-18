@@ -20,11 +20,10 @@ class UserController extends BaseController
 
         $this->user = new User();
 
-        if($this->level !== 1){
-            return redirect()->to('/');
+        if ($this->level === "3" || $this->level === "4") {
+            echo "403";
+            die();
         }
-
-        
     }
 
     public function index()

@@ -38,16 +38,28 @@ class PengaduanController extends BaseController
     public function index()
     {
         $data = [];
-        if ($this->level == 1 || $this->level == 2) {
-            $pengaduans = $this->pengaduan->findAll();
-        } else if ($this->level == 3) {
-            $pengaduans = $this->pengaduan->where('id_user', $this->session->get('id'))->findAll();
-        }
+        // $pengaduans = $this->pengaduan->findAll();
+        $pengaduans = [];
+        $kat = ['Peninjauan','Pemrosesan','Tindak Lanjut','Ditutup'];
 
-        foreach ($pengaduans as $key => $array) {
-            $pengaduans[$key]['kategori'] = $this->kategori->find($pengaduans[$key]['id_kategori'])['judul'];
+        for ($i = 0; $i < 4; $i++) {
+            $data = [];
+            $data['kat'] = $kat[$i];
+
+            if ($this->level == 1 || $this->level == 2) {
+                $data['data'] = $this->pengaduan->where('status',( $i + 1 ))->findAll();
+            } else if ($this->level == 3) {
+                $data['data'] = $this->pengaduan->where('status', ( $i + 1 ))->where('id_user', $this->session->get('id'))->findAll();
+            }
+
+            foreach ($data['data'] as $key => $array) {
+                $data['data'][$key]['kategori'] = $this->kategori->find($data['data'][$key]['id_kategori'])['judul'];
+            }
+            array_push($pengaduans, $data);
         }
         $this->data['pengaduans'] = $pengaduans;
+
+        // dd($this->data);
         return view('app/pengaduan/index', $this->data);
     }
 
@@ -88,6 +100,7 @@ class PengaduanController extends BaseController
                 'id_user' => $this->session->get('id'),
                 'isi' => $this->request->getVar('isi'),
                 'tanggal' => date('Y-m-d'),
+                'estimasi' => NULL,
                 'status' => 1,
             ]);
 
@@ -143,15 +156,21 @@ class PengaduanController extends BaseController
 
     public function update($id_pengaduan)
     {
+        if($this->level !== "1" || $this->level !== "2"){
+            return redirect()->to('/app');
+        }
+        
         try {
             if ($this->request->getFile('lampiran')) {
                 $valid = $this->validate([
                     'isi' => 'required',
+                    'estimasi' => 'required',
                     'lampiran' => 'uploaded[lampiran]|is_image[lampiran]|max_size[lampiran,4096]',
                 ]);
             } else {
                 $valid = $this->validate([
                     'isi' => 'required',
+                    'estimasi' => 'required',
                 ]);
             }
 
@@ -165,6 +184,7 @@ class PengaduanController extends BaseController
                 'isi' => $this->request->getVar('isi'),
                 'tanggal' => date('Y-m-d'),
                 'status' => $this->request->getVar('status'),
+                'estimasi' => $this->request->getVar('estimasi'),
             ]);
 
             $this->pengaduan->update($id_pengaduan, [
