@@ -33,7 +33,7 @@ class LaporanController extends BaseController
         $this->gambar = new Gambar();
         $this->komentar = new Komentar();
         $this->kategori = new Kategori();
-        if ($this->level !== "4") {
+        if ($this->level == "2" || $this->level == "3") {
             echo "403";
             die();
         }

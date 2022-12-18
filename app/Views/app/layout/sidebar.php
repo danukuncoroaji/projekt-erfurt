@@ -96,7 +96,7 @@
                     </ul>
                 </li>
             <?php } ?>
-            <?php if ($session->get('level') == 4) { ?>
+            <?php if ($session->get('level') == 1 || $session->get('level') == 4) { ?>
                 <li <?php if (str_contains(base_url(uri_string()), 'laporan')) { ?> class="active-page" <?php } ?>>
                     <a href="<?php echo base_url('/app/laporan'); ?>"><i class="material-icons-two-tone">description</i>laporan</a>
                 </li>
