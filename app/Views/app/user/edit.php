@@ -42,7 +42,7 @@
                             <div class="form-group">
                                 <label for="nama" class="form-label">Level</label>
                                 <select name="level" class="form-control" name="level">
-                                    <option value="3" <?php echo $user['level'] == '4' ? 'selected' : '' ; ?>>Kades</option>
+                                    <option value="4" <?php echo $user['level'] == '4' ? 'selected' : '' ; ?>>Kades</option>
                                     <option value="1" <?php echo $user['level'] == '1' ? 'selected' : '' ; ?>>Admin</option>
                                     <option value="2" <?php echo $user['level'] == '2' ? 'selected' : '' ; ?>>Pegawai</option>
                                     <option value="3" <?php echo $user['level'] == '3' ? 'selected' : '' ; ?>>Warga</option>
