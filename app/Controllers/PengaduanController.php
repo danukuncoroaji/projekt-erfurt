@@ -156,9 +156,6 @@ class PengaduanController extends BaseController
 
     public function update($id_pengaduan)
     {
-        if($this->level !== "1" || $this->level !== "2"){
-            return redirect()->to('/app');
-        }
         
         try {
             if ($this->request->getFile('lampiran')) {
